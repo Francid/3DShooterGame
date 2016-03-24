@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour {
 
 		set {
 			this._scoreValue = value;
-			this.ScoreLabel.text = "Score: " + this._scoreValue;
+			this.ScoreLabel.text = "Key: " + this._scoreValue;
 		}
 	}
 
@@ -31,7 +31,7 @@ public class GameController : MonoBehaviour {
 		set {
 			this._livesValue = value;
 			if (this._livesValue <= 0) {
-				this._endGame ();
+				//this._endGame ();
 			} else {
 				this.LivesLabel.text = "Lives: " + this._livesValue;
 			}
@@ -76,7 +76,7 @@ public class GameController : MonoBehaviour {
 		this.LivesLabel.gameObject.SetActive (false);
 		this.ScoreLabel.gameObject.SetActive (false);
 		//this._gameOverSound.Play ();
-		this.LoadScene();
+		//this.LoadScene();
 	}
 
 	// PUBLIC METHODS

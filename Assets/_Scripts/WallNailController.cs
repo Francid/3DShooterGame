@@ -70,7 +70,7 @@ public class WallNailController : MonoBehaviour {
 	} // End Update
 
 	//Check for collision
-	void OnCollisionEnter(Collision other){
+	void OnTriggerEnter(Collider other){
 
 		if(other.gameObject.CompareTag("Player")){
 			this.gamecontroller.LivesValue -= 1;
