@@ -10,6 +10,7 @@ public class WallNailController : MonoBehaviour {
 	public float zMin;
 	public float zMax;
 	public int switchDirection;
+	public GameController gamecontroller;
 
 	//PRIVATE VARIABLES
 	private Transform _transform;
@@ -27,12 +28,34 @@ public class WallNailController : MonoBehaviour {
 
 		this._currentPosition = this._transform.position;
 
-		if (this._currentPosition.z >= this.zMin) {
-			this.switchDirection = 0;
+		if (this.speedx != 0) {
+			if (this._currentPosition.x >= this.zMin) {
+				this.switchDirection = 0;
+			}
+
+			if (this._currentPosition.x <= this.zMax) {
+				this.switchDirection = 1;
+			}
 		}
 
-		if (this._currentPosition.z <= this.zMax) {
-			this.switchDirection = 1;
+		if (this.speedy != 0) {
+			if (this._currentPosition.y >= this.zMin) {
+				this.switchDirection = 0;
+			}
+
+			if (this._currentPosition.y <= this.zMax) {
+				this.switchDirection = 1;
+			}
+		}
+
+		if (this.speedz != 0) {
+			if (this._currentPosition.z >= this.zMin) {
+				this.switchDirection = 0;
+			}
+
+			if (this._currentPosition.z <= this.zMax) {
+				this.switchDirection = 1;
+			}
 		}
 
 		if (this.switchDirection == 0) {
@@ -50,7 +73,7 @@ public class WallNailController : MonoBehaviour {
 	void OnCollisionEnter(Collision other){
 
 		if(other.gameObject.CompareTag("Player")){
-			Debug.Log ("Collides with Player");
+			this.gamecontroller.LivesValue -= 1;
 		}
 	}
 		
