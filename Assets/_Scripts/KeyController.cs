@@ -21,8 +21,8 @@ public class KeyController : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 
 		if(other.gameObject.CompareTag("Player")){
-			Debug.Log ("Collides");
 			this.gamecontroller.ScoreValue += 1;
+			Destroy (this.gameObject);
 		}
 	}
 }
